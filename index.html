@@ -28,22 +28,100 @@
   
       <!-- NAV LINKS (DESKTOP) -->
       <nav class="nav" id="navMenu">
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">Jewellery</a>
-        <a href="#">Festive</a>
-        <a href="#">New Arrivals</a>
+
+        <div class="nav-item has-delay">
+          <a href="#">Men</a>
+          <div class="mega-menu">
+            <a href="#">Kurtas</a>
+            <a href="#">Shirts</a>
+            <a href="#">Trousers</a>
+            <a href="#">Ethnic Sets</a>
+          </div>
+        </div>
+      
+        <div class="nav-item has-delay">
+          <a href="#">Women</a>
+          <div class="mega-menu">
+            <a href="#">Sarees</a>
+            <a href="#">Dresses</a>
+            <a href="#">Kurtis</a>
+            <a href="#">Co-ord Sets</a>
+          </div>
+        </div>
+      
+        <div class="nav-item has-delay">
+          <a href="#">Jewellery</a>
+          <div class="mega-menu">
+            <a href="#">Necklaces</a>
+            <a href="#">Earrings</a>
+            <a href="#">Bangles</a>
+            <a href="#">Rings</a>
+          </div>
+        </div>
+      
+        <div class="nav-item has-delay">
+          <a href="#">Festive</a>
+          <div class="mega-menu">
+            <a href="#">Wedding Wear</a>
+            <a href="#">Diwali Edit</a>
+            <a href="#">Occasion Wear</a>
+          </div>
+        </div>
+      
+        <div class="nav-item has-delay">
+          <a href="#">New Arrivals</a>
+          <div class="mega-menu">
+            <a href="#">This Week</a>
+            <a href="#">Trending</a>
+            <a href="#">Editor's Pick</a>
+          </div>
+        </div>
+      
       </nav>
+      
   
       <!-- ICONS -->
       <div class="header-icons">
-        <img src="assets/icons/search.png" class="icon" alt="Search">
-        <img src="assets/icons/user.png" class="icon" alt="Account">
-        <img src="assets/icons/heart.png" class="icon" alt="Wishlist">
+
+        <!-- SEARCH -->
+        <div class="icon-wrapper has-delay">
+            <img src="assets/icons/search.png" class="icon" alt="Search">
+          
+            <div class="icon-dropdown search-dropdown">
+              <div class="search-field">
+                <img src="assets/icons/search.png" alt="Search">
+                <input type="text" placeholder="Search">
+              </div>
+            </div>
+          </div>
+          
+      
+        <!-- USER -->
+        <div class="icon-wrapper has-delay">
+          <img src="assets/icons/user.png" class="icon" alt="Account">
+          <div class="icon-dropdown user-dropdown">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+            <a href="#">Logout</a>
+          </div>
+        </div>
+      
+        <!-- WISHLIST -->
+        <div class="icon-wrapper has-delay">
+          <img src="assets/icons/heart.png" class="icon" alt="Wishlist">
+          <div class="icon-dropdown wishlist-dropdown">
+            <p>No items in wishlist</p>
+          </div>
+        </div>
+      
+        <!-- CART (NO DROPDOWN) -->
         <img src="assets/icons/cart.png" class="icon" alt="Cart">
       
+        <!-- HAMBURGER -->
         <span class="hamburger" id="hamburger">☰</span>
+      
       </div>
+      
   
     </div>
   </header>
@@ -156,6 +234,16 @@
   </form>
 </section>
 
+<!-- ================= ABOUT COMPANY ================= -->
+<section class="info-links">
+    <div class="container info-links-inner">
+      <a href="about.html">About Company</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="faq.html">FAQs</a>
+    </div>
+  </section>
+  
+
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="container footer-grid">
@@ -185,11 +273,55 @@
 <script>
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("navMenu");
+    const navItems = document.querySelectorAll(".nav-item > a");
   
+    // Toggle main menu
     hamburger.addEventListener("click", () => {
       navMenu.classList.toggle("active");
     });
+  
+    // Mobile accordion behavior
+    navItems.forEach(item => {
+      item.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          item.parentElement.classList.toggle("active");
+        }
+      });
+    });
   </script>
+  <script>
+    const delayItems = document.querySelectorAll(".has-delay");
+    const CLOSE_DELAY = 900;
+  
+    delayItems.forEach(item => {
+      let closeTimer;
+  
+      item.addEventListener("mouseenter", () => {
+        if (window.innerWidth <= 768) return; // 🚫 ignore on mobile
+  
+        delayItems.forEach(other => {
+          if (other !== item) {
+            other.classList.remove("open");
+          }
+        });
+  
+        clearTimeout(closeTimer);
+        item.classList.add("open");
+      });
+  
+      item.addEventListener("mouseleave", () => {
+        if (window.innerWidth <= 768) return; // 🚫 ignore on mobile
+  
+        closeTimer = setTimeout(() => {
+          item.classList.remove("open");
+        }, CLOSE_DELAY);
+      });
+    });
+  </script>
+  
+  
+  
   
 </body>
 </html>

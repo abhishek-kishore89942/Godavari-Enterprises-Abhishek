@@ -86,12 +86,80 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
-    opacity: 0.9;
-    transition: opacity 0.2s ease;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
   
   .header-icons .icon:hover {
     opacity: 1;
+  }
+  
+  .icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-dropdown {
+    position: absolute;
+    top: 36px;
+    right: 0;
+    margin-top: 6px;
+    background: var(--white);
+    border: 1px solid #eee;
+    padding: 15px;
+    min-width: 220px;
+    display: none;
+    z-index: 200;
+  }
+
+  /* Base style for icon dropdown links */
+.icon-dropdown a {
+    text-decoration: none;
+    color: var(--charcoal);
+    font-size: 14px;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  }
+  
+  @media (min-width: 769px) {
+    .icon-dropdown a:hover {
+      color: var(--gold);
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+  
+  
+  /* Individual Dropdowns */
+
+  .search-dropdown input {  /* Search */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+  }
+
+  .user-dropdown a {    /* User */
+    display: block;
+    text-decoration: none;
+    color: var(--charcoal);
+    font-size: 14px;
+    padding: 8px 0;
+  }
+  
+  .user-dropdown a:hover {
+    color: var(--gold);
+  }
+  
+  .wishlist-dropdown {   /* Wishlist */
+    width: 260px;
+  }
+  
+  .wishlist-dropdown p {
+    font-size: 14px;
+    color: #666;
   }
   
   
@@ -114,6 +182,84 @@
     letter-spacing: 0.5px;
   }
   
+  .nav {
+    display: flex;
+    gap: 28px;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-item > a {
+    text-decoration: none;
+    color: var(--charcoal);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 0;
+    display: block;
+    transition: font-weight 0.15s ease, color 0.15s ease;
+  }
+
+  @media (min-width: 769px) {
+    .nav-item > a:hover {
+      font-weight: 600;       /* slightly bold */
+      color: var(--charcoal); /* no color jump */
+    }
+  }
+  
+  
+  .mega-menu {
+    position: fixed;
+    top: 70px;                 /* header height */
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 70px);
+    background: var(--white);
+    border-right: 1px solid #eee;
+    padding: 30px;
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 99;
+  }
+  
+  .mega-menu a {
+    text-decoration: none;
+    color: var(--charcoal);
+    font-size: 14px;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  @media (min-width: 769px) {
+    .mega-menu a:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+  @media (min-width: 769px) {
+    .mega-menu a:hover {
+      color: var(--gold);
+    }
+  }
+  
+  
+  /* Hide by default */
+.icon-dropdown,
+.mega-menu {
+  display: none;
+}
+
+/* Show only when JS adds .open */
+.has-delay.open > .icon-dropdown {
+  display: block;
+}
+
+.has-delay.open > .mega-menu {
+  display: flex;
+}
+
   
   /* HERO */
   .hero {
@@ -244,6 +390,30 @@
     border: none;
     color: white;
   }
+
+  /* ABOUT COMPANY */
+  .info-links {
+    border-top: 1px solid #eee;
+    padding: 40px 0;
+  }
+  
+  .info-links-inner {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .info-links a {
+    text-decoration: none;
+    color: var(--charcoal);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .info-links a:hover {
+    color: var(--gold);
+  }
+  
   
   /* FOOTER */
   .footer {
@@ -286,7 +456,48 @@
     .nav.active {
       display: flex;
     }
-  
+    
+    .nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 20px;
+        display: none;
+      }
+    
+      .nav.active {
+        display: flex;
+      }
+    
+      .nav-item {
+        width: 100%;
+      }
+    
+      .nav-item > a {
+        padding: 12px 0;
+        font-size: 15px;
+        font-weight: 600;
+      }
+    
+      .mega-menu {
+        position: static;
+        height: auto;
+        border: none;
+        padding: 10px 0 20px 15px;
+        display: none;
+      }
+    
+      .nav-item.active .mega-menu {
+        display: flex;
+      }
+    
+      .hamburger {
+        display: block;
+      }
+
     /* Show hamburger */
     .hamburger {
       display: block;
@@ -305,6 +516,13 @@
     .hero {
       height: 70vh;
     }
+    
+    /* About Company */
+    .info-links-inner {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
   }
   
   @media (max-width: 768px) {
@@ -317,6 +535,114 @@
       width: 18px;
       height: 18px;
     }
+
+    .icon-dropdown {
+        display: none !important;
+    }
+
+    /*.icon-dropdown,
+    .mega-menu {
+        display: none !important;
+    }*/
   }
   
+  @media (max-width: 768px) {
+
+    /* main hamburger menu */
+    .nav {
+      display: none;
+      flex-direction: column;
+    }
+  
+    .nav.active {
+      display: flex;
+    }
+  
+    /* accordion behavior */
+    .nav-item .mega-menu {
+      display: none;
+      padding-left: 15px;
+    }
+  
+    .nav-item.active .mega-menu {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    /*.nav-item:hover > .mega-menu {
+        display: flex;
+      }*/
+
+    .header-icons .icon:hover {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+
+    .header-icons .icon:hover {
+        filter: brightness(0) saturate(100%) invert(64%) sepia(46%) saturate(470%) hue-rotate(6deg);
+    }
+
+    /*.icon-wrapper:hover > .icon-dropdown {
+        display: block;
+      }*/
+  }
+  
+  @media (max-width: 768px) {
+
+    /* Completely disable hover/delay behavior */
+    .has-delay.open > .mega-menu,
+    .has-delay.open > .icon-dropdown {
+      display: none !important;
+    }
+  
+    /* Click-based accordion only */
+    .nav-item.active > .mega-menu {
+      display: flex !important;
+      flex-direction: column;
+    }
+  
+    /* Icons dropdowns disabled on mobile */
+    .icon-dropdown {
+      display: none !important;
+    }
+  }
+  
+  /* =========================
+   SEARCH DROPDOWN STYLE
+========================= */
+
+.search-dropdown {
+    min-width: 320px;
+    padding: 20px;
+  }
+  
+  .search-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 8px;
+  }
+  
+  .search-field img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+  }
+  
+  .search-field input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--charcoal);
+    background: transparent;
+  }
+  
+  .search-field input::placeholder {
+    color: #777;
+  }
   
