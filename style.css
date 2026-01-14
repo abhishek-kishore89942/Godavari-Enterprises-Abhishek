@@ -865,4 +865,47 @@
     }
   }
   
-    
+
+
+
+
+  /* =========================
+   STATIC PAGES (ABOUT, FAQ, CONTACT)
+========================= */
+
+.about-content {
+    max-width: 900px;
+  }
+  
+  .about-content h2 {
+    margin-top: 40px;
+    margin-bottom: 16px;
+  }
+  
+  .about-content p {
+    margin-bottom: 18px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  
+  .about-content hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 40px 0;
+  }
+
+
+  .btn-primary {
+    border-radius: 6px; /* subtle, premium */
+  }
+
+  /* Reduce gap between Home button and About content */
+.about-content-section {
+    padding-top: 2px; /* default was 70px */
+  }
+  
+  /* Reduce top margin of first heading inside About content */
+  .about-content h2:first-child {
+    margin-top: 0;
+  }
+  
