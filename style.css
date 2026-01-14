@@ -111,6 +111,7 @@
     min-width: 220px;
     display: none;
     z-index: 200;
+    z-index: 999;
   }
 
   /* Base style for icon dropdown links */
@@ -536,14 +537,7 @@
       height: 18px;
     }
 
-    .icon-dropdown {
-        display: none !important;
-    }
-
-    /*.icon-dropdown,
-    .mega-menu {
-        display: none !important;
-    }*/
+    
   }
   
   @media (max-width: 768px) {
@@ -591,11 +585,11 @@
   
   @media (max-width: 768px) {
 
-    /* Completely disable hover/delay behavior */
+    /* Completely disable hover/delay behavior 
     .has-delay.open > .mega-menu,
     .has-delay.open > .icon-dropdown {
       display: none !important;
-    }
+    }*/
   
     /* Click-based accordion only */
     .nav-item.active > .mega-menu {
@@ -603,10 +597,7 @@
       flex-direction: column;
     }
   
-    /* Icons dropdowns disabled on mobile */
-    .icon-dropdown {
-      display: none !important;
-    }
+    
   }
   
   /* =========================
@@ -849,6 +840,29 @@
       gap: 28px;   /* adds space between items */
     }
   }
+
+@media (max-width: 768px) {
+    .icon-wrapper.open > .icon-dropdown {
+      display: block;
+    }
+  }
   
+  @media (max-width: 768px) {
+
+    .icon-dropdown {
+      position: fixed;          /* KEY FIX */
+      top: 70px;                /* below header */
+      left: 0;
+      right: 0;
+      width: 100%;
+      margin: 0;
+      border-left: none;
+      border-right: none;
+    }
+  
+    .icon-wrapper.open > .icon-dropdown {
+      display: block;
+    }
+  }
   
     
