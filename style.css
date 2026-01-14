@@ -54,11 +54,15 @@
   }
   
   .logo img {
-    height: 34px;          /* ideal header size */
+    height: 46px;          /* ideal header size */
     width: auto;
     display: block;
   }
   
+  .logo {
+    display: flex;
+    align-items: center;
+  }
   
   .nav a {
     margin: 0 15px;
@@ -528,7 +532,7 @@
   
   @media (max-width: 768px) {
     .logo img {
-      height: 28px;
+      height: 38px;
     }
   }
   @media (max-width: 768px) {
@@ -769,6 +773,7 @@
   
     .newsletter-footer form {
       flex-direction: column;
+      gap: 12px;   /* 👈 adds vertical spacing */
     }
   
     .newsletter-footer input {
@@ -1060,5 +1065,39 @@
     .faq-question {
       font-size: 14px;
     }
+  }
+  
+
+
+
+
+  /* =========================
+   LEGAL PAGES (Privacy, Terms, Refund, Cancellation)
+========================= */
+
+.legal-content-section {
+    padding-top: 10px;
+  }
+  
+  .legal-content {
+    max-width: 900px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #444;
+  }
+  
+  .legal-content h2 {
+    margin-top: 32px;
+    margin-bottom: 12px;
+    font-size: 18px;
+  }
+  
+  .legal-content ul {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  
+  .legal-content ul li {
+    margin-bottom: 8px;
   }
   
