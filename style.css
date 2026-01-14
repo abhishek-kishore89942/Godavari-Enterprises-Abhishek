@@ -809,4 +809,46 @@
     object-fit: contain;
     opacity: 0.85;
   }
+
+  /* =========================
+   WHY US ICONS
+========================= */
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--charcoal);
+  }
+  
+.feature-item img {
+    width: 28px;
+    height: 28px;
+    opacity: 0.85;
+  }
+  
+@media (min-width: 769px) {
+    .feature-item img {
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+  
+.feature-item:hover img {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+}
+
+/* =========================
+   WHY US – MOBILE SPACING FIX
+========================= */
+
+@media (max-width: 768px) {
+    .features {
+      gap: 28px;   /* adds space between items */
+    }
+  }
+  
+  
     
