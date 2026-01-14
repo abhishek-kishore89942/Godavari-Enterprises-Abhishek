@@ -901,11 +901,164 @@
 
   /* Reduce gap between Home button and About content */
 .about-content-section {
-    padding-top: 2px; /* default was 70px */
+    padding-top: 10px; /* default was 70px */
   }
   
   /* Reduce top margin of first heading inside About content */
   .about-content h2:first-child {
     margin-top: 0;
+  }
+  
+
+
+
+  /* =========================
+   CONTACT US PAGE
+========================= */
+
+.contact-content-section {
+    padding-top: 10px; /* keeps spacing tight like About page */
+  }
+  
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: flex-start;
+  }
+  
+  /* LEFT INFO */
+  .contact-info h2 {
+    margin-bottom: 16px;
+  }
+  
+  .contact-info p {
+    margin-bottom: 24px;
+    color: #555;
+    line-height: 1.7;
+  }
+  
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+  }
+  
+  /* RIGHT FORM */
+  .contact-form h2 {
+    margin-bottom: 16px;
+  }
+  
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;   /* 👈 added */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    outline: none;
+  }
+  
+  .contact-form textarea {
+    resize: vertical;
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .contact-wrapper {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+/* Contact page icon size fix */
+.contact-row .icon-slot img {
+    width: 16px;     /* smaller, cleaner */
+    height: 16px;
+    opacity: 0.8;
+  }
+  
+
+
+
+
+  /* =========================
+   FAQ PAGE
+========================= */
+
+.faq-content-section {
+    padding-top: 10px;
+  }
+  
+  .faq-wrapper {
+    max-width: 900px;
+  }
+  
+  /* FAQ ITEM */
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 18px 0;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: var(--charcoal);
+  }
+  
+  .faq-icon {
+    font-size: 20px;
+    transition: transform 0.2s ease;
+  }
+  
+  /* ANSWER */
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  
+  .faq-answer p {
+    padding-bottom: 16px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+  }
+  
+  /* ACTIVE STATE */
+  .faq-item.active .faq-answer {
+    max-height: 300px;
+  }
+  
+  .faq-item.active .faq-icon {
+    transform: rotate(45deg); /* + to × */
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .faq-question {
+      font-size: 14px;
+    }
   }
   
