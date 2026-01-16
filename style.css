@@ -1100,4 +1100,65 @@
   .legal-content ul li {
     margin-bottom: 8px;
   }
+
+/* User dropdown states */
+.user-logged-in {
+    display: none;
+  }
+  
+  .user-dropdown hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 10px 0;
+  }
+
+  .mega-menu strong {
+    font-size: 13px;
+    margin-top: 14px;
+    color: var(--charcoal);
+  }
+
+/* =========================
+   MEGA MENU ACCORDION (MEN & WOMEN)
+========================= */
+
+.menu-accordion {
+    margin-bottom: 6px;
+  }
+  
+  .menu-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--charcoal);
+    text-decoration: none;
+    padding: 6px 0;
+    cursor: pointer;
+  }
+  
+  .menu-content {
+    display: none;
+    padding-left: 12px;
+  }
+  
+  .menu-content a {
+    display: block;
+    font-size: 14px;
+    color: var(--charcoal);
+    text-decoration: none;
+    padding: 4px 0;
+    opacity: 0.85;
+  }
+  
+  .menu-accordion.active .menu-content {
+    display: block;
+  }
+  
+  @media (min-width: 769px) {
+    .menu-title:hover,
+    .menu-content a:hover {
+      color: var(--gold);
+      opacity: 1;
+    }
+  }
   
