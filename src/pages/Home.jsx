@@ -14,11 +14,12 @@ import {
 } from 'react-icons/fi'
 import {products} from '../data'
 import {ProductCard,SectionTitle} from '../components/UI'
+import {publicAsset} from '../lib/assets'
 
 const collections=[
-  {title:'The Festive Edit',copy:'Modern heirlooms for meaningful celebrations.',image:'/images/products/rose-organza-saree.jpg'},
-  {title:'Everyday, Elevated',copy:'Considered essentials in breathable natural fabrics.',image:'/images/products/stone-linen-shirt.jpg'},
-  {title:'Occasion Tailoring',copy:'Sharp silhouettes, grounded in Indian craft.',image:'/images/products/midnight-bandhgala.jpg'}
+  {title:'The Festive Edit',copy:'Modern heirlooms for meaningful celebrations.',image:publicAsset('images/products/rose-organza-saree.jpg')},
+  {title:'Everyday, Elevated',copy:'Considered essentials in breathable natural fabrics.',image:publicAsset('images/products/stone-linen-shirt.jpg')},
+  {title:'Occasion Tailoring',copy:'Sharp silhouettes, grounded in Indian craft.',image:publicAsset('images/products/midnight-bandhgala.jpg')}
 ]
 
 const marquee=['New season arrivals','Premium Indian craft','Retail & wholesale ready','Pan-India delivery','Affordable luxury','Hand-checked quality']
@@ -60,9 +61,9 @@ function EditorialShowcase(){
       </motion.div>
     </motion.div>
     <motion.div className="editorial-collage" initial={{opacity:0,scale:.96}} whileInView={{opacity:1,scale:1}} viewport={{once:true,amount:.25}} transition={{duration:.9,ease:[.22,1,.36,1]}}>
-      <motion.img className="collage-main" src="/images/products/black-drape-dress.jpg" alt="Black draped dress editorial look" loading="lazy" whileHover={{scale:1.025}}/>
-      <motion.img className="collage-secondary" src="/images/products/wine-silk-kurta.jpg" alt="Wine silk kurta premium detail" loading="lazy" animate={{y:[0,-10,0]}} transition={{duration:6,repeat:Infinity,ease:'easeInOut'}}/>
-      <motion.img className="collage-third" src="/images/products/handloom-sand-saree.jpg" alt="Sand handloom saree texture" loading="lazy" animate={{y:[0,12,0]}} transition={{duration:7,repeat:Infinity,ease:'easeInOut'}}/>
+      <motion.img className="collage-main" src={publicAsset('images/products/black-drape-dress.jpg')} alt="Black draped dress editorial look" loading="lazy" whileHover={{scale:1.025}}/>
+      <motion.img className="collage-secondary" src={publicAsset('images/products/wine-silk-kurta.jpg')} alt="Wine silk kurta premium detail" loading="lazy" animate={{y:[0,-10,0]}} transition={{duration:6,repeat:Infinity,ease:'easeInOut'}}/>
+      <motion.img className="collage-third" src={publicAsset('images/products/handloom-sand-saree.jpg')} alt="Sand handloom saree texture" loading="lazy" animate={{y:[0,12,0]}} transition={{duration:7,repeat:Infinity,ease:'easeInOut'}}/>
       <div className="floating-label"><span>SS 2026</span><strong>Editorial Drop</strong></div>
     </motion.div>
   </section>
@@ -88,7 +89,7 @@ function ExperienceRail(){
 export default function Home(){
   return <>
     <section className="hero hero-modern">
-      <img src="/images/godavari-hero-v2.jpg" alt="Godavari occasionwear campaign" fetchPriority="high" width="2000" height="1125"/>
+      <img src={publicAsset('images/godavari-hero-v2.jpg')} alt="Godavari occasionwear campaign" fetchPriority="high" width="2000" height="1125"/>
       <div className="hero-grain"/>
       <motion.div className="hero-orb orb-one" animate={{y:[0,-22,0],rotate:[0,8,0]}} transition={{duration:8,repeat:Infinity,ease:'easeInOut'}}/>
       <motion.div className="hero-orb orb-two" animate={{y:[0,18,0],rotate:[0,-8,0]}} transition={{duration:9,repeat:Infinity,ease:'easeInOut'}}/>
@@ -133,7 +134,7 @@ export default function Home(){
     </section>
 
     <section className="story-band">
-      <div className="story-image"><img src="/images/products/ivory-chanderi-set.jpg" alt="Ivory Chanderi craftsmanship detail" loading="lazy"/></div>
+      <div className="story-image"><img src={publicAsset('images/products/ivory-chanderi-set.jpg')} alt="Ivory Chanderi craftsmanship detail" loading="lazy"/></div>
       <motion.div className="story-copy" initial={{opacity:0,x:40}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.35}} transition={{duration:.8,ease:[.22,1,.36,1]}}><span className="eyebrow">The Godavari standard</span><h2>Made with intention,<br/><em>checked by hand.</em></h2><p>From fabric selection to the final stitch, every piece passes through a considered quality process. Our manufacturing network blends practiced hands with dependable modern production.</p><Link className="btn light" to="/about">How we make <FiArrowRight/></Link></motion.div>
     </section>
 
