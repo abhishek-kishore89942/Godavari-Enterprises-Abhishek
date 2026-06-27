@@ -1,0 +1,1 @@
+const r="/api";async function s(o,n={}){const a=localStorage.getItem("godavari-admin"),t=await fetch(`${r}${o}`,{...n,headers:{"Content-Type":"application/json",...a&&{Authorization:`Bearer ${a}`},...n.headers}}),e=t.status===204?null:await t.json();if(!t.ok)throw new Error((e==null?void 0:e.message)||"Something went wrong");return e}export{s as a};
