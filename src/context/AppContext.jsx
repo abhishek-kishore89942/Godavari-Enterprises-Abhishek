@@ -1,0 +1,5 @@
+import {createContext,useContext,useEffect,useState} from 'react'
+import toast from 'react-hot-toast'
+const AppContext=createContext()
+export function AppProvider({children}){const [dark,setDark]=useState(()=>localStorage.getItem('theme')==='dark');const [wishlist,setWishlist]=useState(()=>JSON.parse(localStorage.getItem('wishlist')||'[]'));const [cart,setCart]=useState(()=>JSON.parse(localStorage.getItem('cart')||'[]'));useEffect(()=>{document.documentElement.classList.toggle('dark',dark);localStorage.setItem('theme',dark?'dark':'light')},[dark]);useEffect(()=>localStorage.setItem('wishlist',JSON.stringify(wishlist)),[wishlist]);useEffect(()=>localStorage.setItem('cart',JSON.stringify(cart)),[cart]);const toggleWish=id=>setWishlist(x=>x.includes(id)?x.filter(i=>i!==id):[...x,id]);const addCart=(product,size)=>{setCart(x=>[...x,{...product,size,lineId:crypto.randomUUID()}]);toast.success(`${product.title} added to bag`)};const removeCart=id=>setCart(x=>x.filter(i=>i.lineId!==id));return <AppContext.Provider value={{dark,setDark,wishlist,toggleWish,cart,addCart,removeCart}}>{children}</AppContext.Provider>}
+export const useApp=()=>useContext(AppContext)

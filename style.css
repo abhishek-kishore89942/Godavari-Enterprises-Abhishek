@@ -1161,4 +1161,184 @@
       opacity: 1;
     }
   }
+
+/* =========================
+   MEN PAGE PREMIUM LAYOUT
+========================= */
+
+.men-hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  
+  .men-hero-text h1 {
+    font-size: 42px;
+  }
+  
+  .men-hero-text p {
+    margin-top: 12px;
+    max-width: 480px;
+    color: #555;
+  }
+  
+  .men-hero-image img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  /* CATEGORY BOX ROW */
+  
+  .category-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 25px;
+  }
+  
+  .category-box {
+    padding: 14px 22px;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    text-decoration: none;
+    color: var(--charcoal);
+    font-weight: 500;
+    transition: all 0.25s ease;
+  }
+  
+  @media (min-width: 769px) {
+    .category-box:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-3px);
+    }
+  }
+  
+  /* MOBILE */
+  
+  @media (max-width: 768px) {
+    .men-hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  
+    .men-hero-text h1 {
+      font-size: 32px;
+    }
+  
+    .category-row {
+      justify-content: center;
+    }
+  }
+
+/* =========================
+   MEN CATALOG SECTIONS
+========================= */
+
+.men-catalog {
+    padding: 55px 0;
+  }
+  
+  .catalog-box {
+    border: 1px solid #eee;
+    border-radius: 14px;
+    padding: 45px;
+    text-align: center;
+    background: #fff;
+    max-width: 900px;
+  }
+  
+  .catalog-box h2 {
+    font-size: 28px;
+  }
+  
+  .catalog-box p {
+    margin-top: 12px;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* OUTLINE BUTTON */
+  
+  .btn-outline {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 26px;
+    border: 1px solid var(--gold);
+    border-radius: 40px;
+    text-decoration: none;
+    color: var(--charcoal);
+    font-weight: 500;
+    transition: 0.25s ease;
+  }
+  
+  @media (min-width: 769px) {
+    .btn-outline:hover {
+      background: var(--gold);
+      color: white;
+      transform: translateY(-2px);
+    }
+  }
+  
+  /* MOBILE */
+  
+  @media (max-width: 768px) {
+    .catalog-box {
+      padding: 30px 18px;
+    }
+  
+    .catalog-box h2 {
+      font-size: 22px;
+    }
+  }
+
+  
+/* =========================
+   MEN SECTION IMAGE GRID
+========================= */
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: center;
+  }
+  
+  .catalog-grid img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  /* Reverse layout alternate sections */
+  .catalog-grid.reverse {
+    direction: rtl;
+  }
+  
+  .catalog-grid.reverse div {
+    direction: ltr;
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .catalog-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  
+    .catalog-grid.reverse {
+      direction: ltr;
+    }
+  
+    .catalog-grid img {
+      height: 260px;
+    }
+  }
   
