@@ -3,7 +3,7 @@
   "private": true,
   "version": "2.0.0",
   "type": "module",
-  "scripts": {"dev":"vite","build":"vite build","preview":"vite preview","server":"node server/server.js","start":"concurrently \"npm run server\" \"npm run dev\"","deploy":"npm run build && node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\" && gh-pages -d dist"},
+  "scripts": {"dev":"vite","build":"vite build","build:pages":"GITHUB_PAGES=true vite build","preview":"vite preview","server":"node server/server.js","start":"concurrently \"npm run server\" \"npm run dev\"","deploy":"npm run build:pages && node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\" && gh-pages -d dist"},
   "dependencies": {"bcryptjs":"2.4.3","compression":"1.7.4","cors":"2.8.5","dotenv":"16.4.7","express":"4.21.2","framer-motion":"11.15.0","helmet":"8.0.0","jsonwebtoken":"9.0.2","mongoose":"8.9.5","morgan":"1.10.0","multer":"1.4.5-lts.1","react":"18.3.1","react-dom":"18.3.1","react-helmet-async":"2.0.5","react-hot-toast":"2.5.1","react-icons":"5.4.0","react-router-dom":"6.28.1"},
   "devDependencies": {"@vitejs/plugin-react":"4.3.4","autoprefixer":"10.4.20","concurrently":"9.1.2","gh-pages":"6.2.0","postcss":"8.4.49","tailwindcss":"3.4.17","vite":"6.0.7"}
 }
